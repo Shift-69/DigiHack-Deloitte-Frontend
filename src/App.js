@@ -41,7 +41,7 @@ const App = () => {
 
   useEffect(() => {
     function fetchPetsHandler() {
-      fetch("http://localhost:5000/api/posts").then(response => {
+      fetch("http://localhost:5001/api/posts").then(response => {
         return response.json();
       }).then(data => {
         setExpenses(data.map(data => { return { ...data, date: new Date(data.date) }; }));
@@ -52,7 +52,7 @@ const App = () => {
   }, [])
 
   async function addPostHandler(post){
-    const response = await fetch("http://localhost:5000/api/posts",{
+    const response = await fetch("http://localhost:5001/api/posts",{
       method: "POST",
       body: JSON.stringify(post),
       headers: {
